@@ -1,0 +1,240 @@
+/* ==============================
+   FORM INPUT CONTAINER
+================================ */
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ==============================
+   LABEL
+================================ */
+
+.form-input__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--color-text-heading);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: var(--font-semibold);
+  line-height: 1.5;
+}
+
+.form-input__required {
+  color: #DC2626;
+}
+
+/* ==============================
+   INPUT WRAPPER
+================================ */
+
+.form-input__wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* ==============================
+   INPUT CONTROL
+================================ */
+
+.form-input__control {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 12px 14px;
+
+  color: var(--color-text);
+  background: var(--color-background);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.form-input__control::placeholder {
+  color: #94A3B8;
+  opacity: 1;
+}
+
+.form-input__control:hover:not(:disabled) {
+  border-color: #94A3B8;
+}
+
+.form-input__control:focus-visible {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+}
+
+.form-input__control--password {
+  padding-right: 46px;
+}
+
+/* ==============================
+   PASSWORD VISIBILITY BUTTON
+================================ */
+
+.form-input__toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+
+  display: grid;
+  place-items: center;
+
+  width: 32px;
+  height: 32px;
+  padding: 0;
+
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.form-input__toggle:hover:not(:disabled) {
+  color: var(--color-primary);
+  background: var(--color-background-soft);
+}
+
+.form-input__toggle:focus-visible {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 2px;
+}
+
+.form-input__toggle:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ==============================
+   ERROR STATE
+================================ */
+
+.form-input__control--error {
+  border-color: #DC2626;
+  background: #FEF2F2;
+}
+
+.form-input__control--error:focus-visible {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.form-input__message {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.form-input__message svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.form-input__message--error {
+  color: #B91C1C;
+}
+
+.form-input__message--helper {
+  color: var(--color-text-muted);
+}
+
+/* ==============================
+   DISABLED STATE
+================================ */
+
+.form-input__control:disabled {
+  color: #94A3B8;
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* ==============================
+   AUTOFILL
+================================ */
+
+.form-input__control:-webkit-autofill {
+  -webkit-text-fill-color: var(--color-text);
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+  .form-input__control {
+    min-height: 47px;
+    padding: 12px;
+  }
+
+  .form-input__control--password {
+    padding-right: 44px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .form-input {
+    gap: 7px;
+  }
+
+  .form-input__label {
+    font-size: 13px;
+  }
+
+  .form-input__control {
+    min-height: 46px;
+    font-size: 14px;
+  }
+
+  .form-input__message {
+    font-size: 12px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .form-input__control,
+  .form-input__toggle {
+    transition: none;
+  }
+}

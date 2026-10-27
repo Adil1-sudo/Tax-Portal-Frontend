@@ -1,0 +1,9 @@
+:root {
+  --toastify-color-success: #2ecc71;
+  --toastify-color-error: #e74c3c;
+  --toastify-color-warning: #f1c40f;
+  --toastify-color-info: #3498db;
+  
+  /* You can also change the font color */
+  --toastify-text-color-light: #fff; 
+}

@@ -1,0 +1,805 @@
+
+.fee-management {
+  width: 100%;
+  min-width: 0;
+  color: var(--color-text, #334155);
+  font-family: var(--font-body, "Inter", sans-serif);
+  animation: fee-management-enter 0.35s ease both;
+}
+
+.fee-management *,
+.fee-management *::before,
+.fee-management *::after {
+  box-sizing: border-box;
+}
+
+.fee-management button,
+.fee-management input,
+.fee-management select,
+.fee-management textarea {
+  font: inherit;
+}
+
+.fee-management button {
+  cursor: pointer;
+}
+
+.fee-management button:focus-visible,
+.fee-management input:focus-visible,
+.fee-management select:focus-visible,
+.fee-management textarea:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: 2px;
+}
+
+.fee-management__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.fee-management__eyebrow {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--color-primary, #2563eb);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.fee-management__header h1 {
+  margin: 0;
+  color: var(--color-text-heading, #102a43);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.fee-management__header p {
+  max-width: 650px;
+  margin: 10px 0 0;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.fee-management__primary-button,
+.fee-management__secondary-button,
+.fee-management__reset-button {
+  display: inline-flex;
+  min-height: 43px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md, 10px);
+  padding: 10px 15px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.fee-management__primary-button {
+  flex-shrink: 0;
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+}
+
+.fee-management__primary-button:hover {
+  background: var(--color-accent-hover, #1d4ed8);
+  transform: translateY(-1px);
+}
+
+.fee-management__secondary-button {
+  border-color: var(--color-border, #dbe4ee);
+  background: #fff;
+  color: var(--color-text, #334155);
+}
+
+.fee-management__secondary-button:hover,
+.fee-management__reset-button:hover {
+  border-color: var(--color-primary, #2563eb);
+  color: var(--color-primary, #2563eb);
+}
+
+.fee-management__demo-notice,
+.fee-management__notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-md, 10px);
+  padding: 14px 16px;
+  background: #eff6ff;
+  color: #1e40af;
+}
+
+.fee-management__demo-notice > svg,
+.fee-management__notice > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fee-management__demo-notice p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+.fee-management__notice {
+  align-items: center;
+  margin-top: 14px;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+  color: #065f46;
+  font-size: 0.88rem;
+}
+
+.fee-management__notice span {
+  flex: 1;
+}
+
+.fee-management__notice button {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  border: 0;
+  padding: 2px;
+  background: transparent;
+  color: inherit;
+}
+
+.fee-management__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 22px 0;
+}
+
+.fee-management__stat-card {
+  min-width: 0;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 14px);
+  padding: 20px;
+  background: #fff;
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(15, 23, 42, 0.04));
+}
+
+.fee-management__stat-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  margin-bottom: 15px;
+  border-radius: 12px;
+}
+
+.fee-management__stat-icon--blue {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.fee-management__stat-icon--orange {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.fee-management__stat-icon--green {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.fee-management__stat-card > p {
+  margin: 0 0 8px;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.83rem;
+  font-weight: 600;
+}
+
+.fee-management__stat-card > strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--color-text-heading, #102a43);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+}
+
+.fee-management__stat-card > span {
+  display: block;
+  margin-top: 7px;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.fee-management__form {
+  margin-bottom: 24px;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 14px);
+  padding: clamp(16px, 3vw, 24px);
+  background: #fff;
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(15, 23, 42, 0.04));
+}
+
+.fee-management__form-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  color: var(--color-primary, #2563eb);
+}
+
+.fee-management__form-heading h2,
+.fee-management__filter-heading h2 {
+  margin: 0;
+  color: var(--color-text-heading, #102a43);
+  font-family: var(--font-heading, "Plus Jakarta Sans", sans-serif);
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.fee-management__form-heading p {
+  margin: 7px 0 0;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.fee-management__form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.fee-management__field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--color-text-heading, #102a43);
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.fee-management__field > span {
+  color: #dc2626;
+}
+
+.fee-management__field--full {
+  grid-column: 1 / -1;
+}
+
+.fee-management__field input,
+.fee-management__field select,
+.fee-management__field textarea,
+.fee-management__filter-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: var(--radius-md, 10px);
+  padding: 10px 12px;
+  background: #fff;
+  color: var(--color-text, #334155);
+  font-size: 0.86rem;
+  font-weight: 400;
+}
+
+.fee-management__field textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.fee-management__field input::placeholder,
+.fee-management__field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.fee-management__form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.fee-management__error {
+  margin: 14px 0 0;
+  color: #b91c1c;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.fee-management__filters {
+  margin-bottom: 16px;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 14px);
+  padding: 20px;
+  background: #fff;
+}
+
+.fee-management__filter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.fee-management__filter-heading p {
+  margin: 6px 0 0;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.fee-management__result-count {
+  flex-shrink: 0;
+  border-radius: var(--radius-full, 999px);
+  padding: 6px 10px;
+  background: var(--color-background-soft, #f1f5f9);
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.fee-management__filter-controls {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.5fr) repeat(2, minmax(145px, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.fee-management__search {
+  display: flex;
+  min-width: 0;
+  min-height: 44px;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: var(--radius-md, 10px);
+  padding: 0 12px;
+  color: var(--color-text-muted, #64748b);
+}
+
+.fee-management__search:focus-within {
+  border-color: var(--color-primary, #2563eb);
+}
+
+.fee-management__search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--color-text, #334155);
+  font-size: 0.82rem;
+}
+
+.fee-management__search input:focus-visible {
+  outline: none;
+}
+
+.fee-management__filter-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.fee-management__filter-field select {
+  min-height: 44px;
+  padding: 9px;
+  font-size: 0.82rem;
+}
+
+.fee-management__reset-button {
+  border-color: var(--color-border, #cbd5e1);
+  background: #fff;
+  color: var(--color-text, #334155);
+}
+
+.fee-management__table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: var(--radius-lg, 14px);
+  background: #fff;
+}
+
+.fee-management__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.81rem;
+}
+
+.fee-management__table th {
+  padding: 14px 15px;
+  border-bottom: 1px solid var(--color-border, #e2e8f0);
+  background: #f8fafc;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  white-space: nowrap;
+}
+
+.fee-management__table td {
+  min-width: 110px;
+  padding: 16px 15px;
+  border-bottom: 1px solid #edf2f7;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.fee-management__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.fee-management__table tbody tr:hover {
+  background: #fbfdff;
+}
+
+.fee-management__table td:first-child {
+  min-width: 220px;
+  max-width: 320px;
+}
+
+.fee-management__fee-title {
+  color: var(--color-text-heading, #102a43);
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.fee-management__fee-description {
+  margin: 5px 0;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.76rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.fee-management__fee-id {
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+.fee-management__client-name {
+  color: var(--color-text-heading, #102a43);
+  font-weight: 650;
+  overflow-wrap: anywhere;
+}
+
+.fee-management__amount {
+  color: var(--color-text-heading, #102a43);
+  font-size: 0.83rem;
+  white-space: nowrap;
+}
+
+.fee-management__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-full, 999px);
+  padding: 5px 9px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.fee-management__status > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.fee-management__status--pending {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.fee-management__status--overdue {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.fee-management__status--paid {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.fee-management__status--cancelled {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.fee-management__paid-date {
+  display: block;
+  margin-top: 6px;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.7rem;
+}
+
+.fee-management__actions {
+  display: flex;
+  min-width: 105px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.fee-management__action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 0;
+  border-radius: 7px;
+  padding: 6px 8px;
+  background: transparent;
+  font-size: 0.72rem;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.fee-management__action-button--paid {
+  color: #047857;
+}
+
+.fee-management__action-button--paid:hover {
+  background: #ecfdf5;
+}
+
+.fee-management__action-button--cancel {
+  color: #b91c1c;
+}
+
+.fee-management__action-button--cancel:hover {
+  background: #fef2f2;
+}
+
+.fee-management__cancel-confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+}
+
+.fee-management__cancel-confirm span {
+  flex-basis: 100%;
+  color: #b91c1c;
+}
+
+.fee-management__cancel-confirm button {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 5px;
+  padding: 4px 7px;
+  background: #fff;
+  color: var(--color-text, #334155);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.fee-management__no-action {
+  color: #94a3b8;
+  font-size: 0.75rem;
+}
+
+.fee-management__empty {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  text-align: center;
+  color: var(--color-text-muted, #64748b);
+}
+
+.fee-management__empty > svg {
+  margin-bottom: 12px;
+  color: #94a3b8;
+}
+
+.fee-management__empty h3 {
+  margin: 0;
+  color: var(--color-text-heading, #102a43);
+  font-size: 1rem;
+}
+
+.fee-management__empty p {
+  max-width: 380px;
+  margin: 8px 0 16px;
+  font-size: 0.83rem;
+  line-height: 1.6;
+}
+
+.fee-management__footnote {
+  margin: 14px 0 0;
+  color: var(--color-text-muted, #64748b);
+  font-size: 0.77rem;
+  line-height: 1.65;
+}
+
+.fee-management__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@keyframes fee-management-enter {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .fee-management__filter-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fee-management__search {
+    grid-column: 1 / -1;
+  }
+
+  .fee-management__reset-button {
+    justify-self: start;
+  }
+
+  .fee-management__table {
+    min-width: 850px;
+  }
+}
+
+@media (max-width: 760px) {
+  .fee-management__header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .fee-management__header .fee-management__primary-button {
+    align-self: flex-start;
+  }
+
+  .fee-management__stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fee-management__stat-card {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    column-gap: 13px;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .fee-management__stat-icon {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    margin: 0;
+  }
+
+  .fee-management__stat-card > p,
+  .fee-management__stat-card > strong,
+  .fee-management__stat-card > span {
+    grid-column: 2;
+  }
+
+  .fee-management__stat-card > p {
+    margin-bottom: 4px;
+  }
+
+  .fee-management__stat-card > strong {
+    font-size: 1.45rem;
+  }
+
+  .fee-management__stat-card > span {
+    margin-top: 4px;
+  }
+
+  .fee-management__filter-heading {
+    align-items: flex-start;
+  }
+
+  .fee-management__filters {
+    padding: 15px;
+  }
+
+  .fee-management__form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .fee-management__field--full {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .fee-management__header h1 {
+    font-size: 1.55rem;
+  }
+
+  .fee-management__header p {
+    font-size: 0.86rem;
+  }
+
+  .fee-management__primary-button,
+  .fee-management__secondary-button {
+    min-height: 42px;
+    padding: 10px 12px;
+    font-size: 0.81rem;
+  }
+
+  .fee-management__demo-notice,
+  .fee-management__notice {
+    padding: 12px;
+  }
+
+  .fee-management__demo-notice p {
+    font-size: 0.79rem;
+  }
+
+  .fee-management__filter-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .fee-management__search {
+    grid-column: auto;
+  }
+
+  .fee-management__filter-heading {
+    flex-direction: column;
+  }
+
+  .fee-management__form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .fee-management__form-actions button {
+    width: 100%;
+  }
+
+  .fee-management__result-count {
+    align-self: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fee-management,
+  .fee-management *,
+  .fee-management *::before,
+  .fee-management *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

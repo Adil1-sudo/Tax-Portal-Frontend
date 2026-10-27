@@ -1,0 +1,196 @@
+/* ==============================
+   TEXTAREA CONTAINER
+================================ */
+
+.form-textarea {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ==============================
+   LABEL
+================================ */
+
+.form-textarea__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--color-text-heading);
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: var(--font-semibold);
+  line-height: 1.5;
+}
+
+.form-textarea__required {
+  color: #DC2626;
+}
+
+/* ==============================
+   TEXTAREA CONTROL
+================================ */
+
+.form-textarea__control {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 120px;
+  padding: 13px 14px;
+
+  color: var(--color-text);
+  background: var(--color-background);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  outline: none;
+
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.75;
+
+  resize: vertical;
+  overflow-wrap: anywhere;
+
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.form-textarea__control::placeholder {
+  color: #94A3B8;
+  opacity: 1;
+}
+
+.form-textarea__control:hover:not(:disabled) {
+  border-color: #94A3B8;
+}
+
+.form-textarea__control:focus-visible {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.14);
+}
+
+/* ==============================
+   ERROR STATE
+================================ */
+
+.form-textarea__control--error {
+  border-color: #DC2626;
+  background: #FEF2F2;
+}
+
+.form-textarea__control--error:focus-visible {
+  border-color: #DC2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+/* ==============================
+   FOOTER AND FEEDBACK
+================================ */
+
+.form-textarea__footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.form-textarea__feedback {
+  flex: 1;
+  min-width: 0;
+}
+
+.form-textarea__message {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.form-textarea__message--error {
+  color: #B91C1C;
+}
+
+.form-textarea__message--helper {
+  color: var(--color-text-muted);
+}
+
+/* ==============================
+   CHARACTER COUNT
+================================ */
+
+.form-textarea__count {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+  font-size: 12px;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==============================
+   DISABLED STATE
+================================ */
+
+.form-textarea__control:disabled {
+  color: #94A3B8;
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+  cursor: not-allowed;
+  opacity: 0.8;
+  resize: none;
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+  .form-textarea__control {
+    min-height: 115px;
+    padding: 12px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .form-textarea {
+    gap: 7px;
+  }
+
+  .form-textarea__label {
+    font-size: 13px;
+  }
+
+  .form-textarea__control {
+    min-height: 110px;
+    font-size: 14px;
+  }
+
+  .form-textarea__footer {
+    gap: 8px;
+  }
+
+  .form-textarea__message,
+  .form-textarea__count {
+    font-size: 11px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .form-textarea__control {
+    transition: none;
+  }
+}

@@ -1,0 +1,204 @@
+/* ==============================
+   ALERT BASE
+================================ */
+
+.alert-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  width: 100%;
+  min-width: 0;
+  padding: 15px 16px;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+
+  animation: alert-message-enter 0.25s ease-out;
+}
+
+/* ==============================
+   ICON
+================================ */
+
+.alert-message__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ==============================
+   CONTENT
+================================ */
+
+.alert-message__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-message__title {
+  margin: 0 0 4px;
+
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: var(--font-bold);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.alert-message__description {
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* Support paragraphs passed as children */
+
+.alert-message__description p {
+  margin: 0;
+}
+
+.alert-message__description p + p {
+  margin-top: 6px;
+}
+
+/* ==============================
+   CLOSE BUTTON
+================================ */
+
+.alert-message__close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+
+  width: 30px;
+  height: 30px;
+  margin: -5px -6px 0 0;
+
+  color: currentColor;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+
+  cursor: pointer;
+  opacity: 0.75;
+
+  transition:
+    opacity var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.alert-message__close:hover {
+  opacity: 1;
+  background: rgba(100, 116, 139, 0.12);
+}
+
+.alert-message__close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ==============================
+   SUCCESS
+================================ */
+
+.alert-message--success {
+  color: #166534;
+  background: #F0FDF4;
+  border-color: #BBF7D0;
+}
+
+/* ==============================
+   ERROR
+================================ */
+
+.alert-message--error {
+  color: #991B1B;
+  background: #FEF2F2;
+  border-color: #FECACA;
+}
+
+/* ==============================
+   WARNING
+================================ */
+
+.alert-message--warning {
+  color: #92400E;
+  background: #FFFBEB;
+  border-color: #FDE68A;
+}
+
+/* ==============================
+   INFORMATION
+================================ */
+
+.alert-message--info {
+  color: #1E40AF;
+  background: #EFF6FF;
+  border-color: #BFDBFE;
+}
+
+/* ==============================
+   ENTRANCE ANIMATION
+================================ */
+
+@keyframes alert-message-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+  .alert-message {
+    gap: 10px;
+    padding: 14px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .alert-message {
+    gap: 9px;
+    padding: 12px;
+  }
+
+  .alert-message__icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .alert-message__title {
+    font-size: 13px;
+  }
+
+  .alert-message__description {
+    font-size: 12px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .alert-message {
+    animation: none;
+  }
+
+  .alert-message__close {
+    transition: none;
+  }
+}

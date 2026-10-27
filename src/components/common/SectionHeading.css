@@ -1,0 +1,205 @@
+/* ==============================
+   SECTION HEADING BASE
+================================ */
+
+.section-heading {
+  width: 100%;
+  max-width: 760px;
+  margin-bottom: 42px;
+}
+
+/* ==============================
+   EYEBROW LABEL
+================================ */
+
+.section-heading__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 15px;
+
+  color: var(--color-secondary);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: var(--font-bold);
+  letter-spacing: 1.6px;
+  line-height: 1.5;
+  text-transform: uppercase;
+
+  animation: section-heading-enter 0.55s ease both;
+}
+
+.section-heading__eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.12);
+}
+
+/* ==============================
+   MAIN TITLE
+================================ */
+
+.section-heading__title {
+  margin: 0;
+  color: var(--color-text-heading);
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: var(--font-extrabold);
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+  overflow-wrap: anywhere;
+
+  animation: section-heading-enter 0.65s ease both;
+  animation-delay: 80ms;
+}
+
+/* ==============================
+   DESCRIPTION
+================================ */
+
+.section-heading__description {
+  max-width: 620px;
+  margin-top: 17px;
+  color: var(--color-text-muted);
+  font-size: 16px;
+  font-weight: var(--font-regular);
+  line-height: 1.85;
+
+  animation: section-heading-enter 0.65s ease both;
+  animation-delay: 160ms;
+}
+
+/* ==============================
+   ALIGNMENT
+================================ */
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading--center .section-heading__eyebrow {
+  justify-content: center;
+}
+
+.section-heading--center .section-heading__description {
+  margin-inline: auto;
+}
+
+.section-heading--left {
+  margin-inline: 0;
+  text-align: left;
+}
+
+.section-heading--left .section-heading__eyebrow {
+  justify-content: flex-start;
+}
+
+.section-heading--left .section-heading__description {
+  margin-inline: 0;
+}
+
+/* ==============================
+   TITLE SIZES
+================================ */
+
+.section-heading--small .section-heading__title {
+  font-size: clamp(24px, 2.5vw, 32px);
+}
+
+.section-heading--medium .section-heading__title {
+  font-size: clamp(28px, 3.2vw, 42px);
+}
+
+.section-heading--large .section-heading__title {
+  font-size: clamp(32px, 4.2vw, 52px);
+  letter-spacing: -1.5px;
+}
+
+/* ==============================
+   ENTRANCE ANIMATION
+================================ */
+
+@keyframes section-heading-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+  .section-heading {
+    margin-bottom: 32px;
+  }
+
+  .section-heading__eyebrow {
+    margin-bottom: 12px;
+    font-size: 11px;
+    letter-spacing: 1.3px;
+  }
+
+  .section-heading__title {
+    letter-spacing: -0.8px;
+  }
+
+  .section-heading__description {
+    margin-top: 14px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .section-heading {
+    margin-bottom: 26px;
+  }
+
+  .section-heading__title {
+    letter-spacing: -0.5px;
+  }
+
+  .section-heading--large .section-heading__title {
+    letter-spacing: -0.8px;
+  }
+
+  .section-heading__description {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .section-heading__eyebrow {
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 1.1px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .section-heading__eyebrow,
+  .section-heading__title,
+  .section-heading__description {
+    animation: none;
+  }
+}

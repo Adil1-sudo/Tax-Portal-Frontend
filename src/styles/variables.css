@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Brand colors */
+  --color-primary: #102A43;
+  --color-primary-light: #243F5A;
+  --color-secondary: #2563EB;
+  --color-secondary-hover: #1D4ED8;
+  --color-accent: #0D9488;
+  --color-accent-hover: #0F766E;
+
+  /* Backgrounds */
+  --color-background: #FFFFFF;
+  --color-background-soft: #F1F5F9;
+  --color-background-blue: #EFF6FF;
+
+  /* Text */
+  --color-text: #334155;
+  --color-text-heading: #102A43;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
+
+  /* Borders and states */
+  --color-border: #E2E8F0;
+  --color-success: #15803D;
+  --color-error: #DC2626;
+  --color-warning: #D97706;
+
+  /* Typography */
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Font weights */
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Layout */
+  --container-width: 1200px;
+  --header-height: 76px;
+
+  /* Spacing */
+  --section-padding: 88px;
+  --section-padding-mobile: 56px;
+
+  /* Corners */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(16, 42, 67, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 42, 67, 0.08);
+  --shadow-lg: 0 16px 40px rgba(16, 42, 67, 0.12);
+
+  /* Animation */
+  --transition-fast: 180ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* Global reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 16px);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text);
+  background: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-heading);
+  line-height: 1.2;
+  font-weight: var(--font-bold);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.container {
+  width: min(
+    calc(100% - 40px),
+    var(--container-width)
+  );
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-padding);
+}
+
+::selection {
+  color: #FFFFFF;
+  background: var(--color-secondary);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 3px;
+}
+
+/* Respect the user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+    --section-padding: 64px;
+  }
+
+  .container {
+    width: min(calc(100% - 32px), var(--container-width));
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  :root {
+    --section-padding: var(--section-padding-mobile);
+  }
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  body {
+    font-size: 15px;
+  }
+}

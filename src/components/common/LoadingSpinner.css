@@ -1,0 +1,121 @@
+/* ==============================
+   SPINNER CONTAINER
+================================ */
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  padding: 24px 16px;
+
+  color: var(--color-secondary);
+}
+
+/* ==============================
+   SPINNER ICON
+================================ */
+
+.loading-spinner__icon {
+  flex-shrink: 0;
+  animation: loading-spinner-rotate 0.8s linear infinite;
+}
+
+/* ==============================
+   SIZE VARIANTS
+================================ */
+
+.loading-spinner--small .loading-spinner__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.loading-spinner--medium .loading-spinner__icon {
+  width: 36px;
+  height: 36px;
+}
+
+.loading-spinner--large .loading-spinner__icon {
+  width: 52px;
+  height: 52px;
+}
+
+/* ==============================
+   LABEL
+================================ */
+
+.loading-spinner__label {
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* ==============================
+   FULLSCREEN LOADING
+================================ */
+
+.loading-spinner--fullscreen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 32px 20px;
+  background: var(--color-background-soft);
+}
+
+/* ==============================
+   ANIMATION
+================================ */
+
+@keyframes loading-spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 768px) {
+  .loading-spinner {
+    gap: 10px;
+    padding: 22px 14px;
+  }
+
+  .loading-spinner--large .loading-spinner__icon {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .loading-spinner__label {
+    font-size: 13px;
+  }
+
+  .loading-spinner--fullscreen {
+    padding: 24px 16px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner__icon {
+    animation-duration: 2s;
+  }
+}

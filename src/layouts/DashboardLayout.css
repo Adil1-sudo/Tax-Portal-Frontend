@@ -1,0 +1,11 @@
+
+.dashboard-shell {
+  min-height: 100vh;
+  background: var(--color-background, #f1f5f9);
+  color: var(--color-text, #334155);
+}
+
+.dashboard-shell__content {
+  width: 100%;
+  min-height: 100vh;
+}

@@ -1,0 +1,264 @@
+
+/* ========================================
+   SIGNUP PAGE
+   Reuses shared authentication styles
+   from Login.css.
+======================================== */
+
+.signup-page {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.signup-page .auth-shell {
+  min-height: 760px;
+}
+
+.signup-page .auth-intro {
+  background: linear-gradient(
+    150deg,
+    var(--color-primary, #2563eb) 0%,
+    #173b77 100%
+  );
+}
+
+.signup-page .auth-intro__content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.signup-page .auth-brand {
+  margin-bottom: 48px;
+}
+
+.signup-page .auth-intro__content h1 {
+  font-size: clamp(2.2rem, 3.8vw, 3.1rem);
+}
+
+.signup-page .auth-intro__benefits {
+  margin-top: 30px;
+}
+
+.signup-page .auth-form-area {
+  justify-content: flex-start;
+  padding-top: 34px;
+  padding-bottom: 25px;
+}
+
+.signup-form-card {
+  max-width: 430px;
+}
+
+.signup-form-card .auth-form-card__heading {
+  margin-bottom: 24px;
+}
+
+.signup-form-card .auth-form-card__icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 14px;
+  border-radius: 15px;
+}
+
+.signup-form-card .auth-form-card__heading h2 {
+  font-size: clamp(1.5rem, 2.7vw, 1.8rem);
+}
+
+.signup-form {
+  gap: 17px;
+}
+
+.signup-form .auth-field {
+  gap: 7px;
+}
+
+.signup-form .auth-field input {
+  min-height: 46px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.signup-field-hint {
+  color: var(--color-text-muted, #64748b);
+  font-family: var(--font-body, "Inter", sans-serif);
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+.signup-consent {
+  margin-top: 1px;
+}
+
+.signup-consent span {
+  line-height: 1.7;
+}
+
+.signup-form .auth-submit {
+  margin-top: 1px;
+}
+
+.signup-form-card .auth-form-card__divider {
+  margin-top: 23px;
+  margin-bottom: 17px;
+}
+
+.signup-form-card .auth-form-card__back {
+  margin-top: 17px;
+}
+
+.signup-form-area .auth-form-area__note {
+  margin-top: 17px;
+}
+
+/* Signup feedback */
+
+.signup-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  margin-bottom: 19px;
+  padding: 14px;
+  border: 1px solid var(--color-border, #e2e8f0);
+  border-radius: 11px;
+  font-family: var(--font-body, "Inter", sans-serif);
+  animation: authFadeUp 0.3s ease both;
+}
+
+.signup-notice > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.signup-notice strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.signup-notice p {
+  margin: 0;
+  font-size: 0.79rem;
+  line-height: 1.7;
+}
+
+.signup-notice--error {
+  border-color: #fecaca;
+  color: #991b1b;
+  background: #fef2f2;
+}
+
+.signup-notice--error p {
+  color: #7f1d1d;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 1000px) {
+  .signup-page .auth-intro {
+    padding: 32px;
+  }
+
+  .signup-page .auth-form-area {
+    padding: 35px 28px 24px;
+  }
+
+  .signup-page .auth-brand {
+    margin-bottom: 36px;
+  }
+}
+
+@media (max-width: 760px) {
+  .signup-page {
+    padding: 22px 16px;
+  }
+
+  .signup-page .auth-shell {
+    min-height: auto;
+  }
+
+  .signup-page .auth-intro {
+    padding: 27px 28px;
+  }
+
+  .signup-page .auth-intro__content {
+    padding: 23px 0 27px;
+  }
+
+  .signup-page .auth-brand {
+    margin-bottom: 31px;
+  }
+
+  .signup-page .auth-intro__content h1 {
+    font-size: clamp(2rem, 6vw, 2.7rem);
+  }
+
+  .signup-page .auth-form-area {
+    padding: 35px 28px 27px;
+  }
+}
+
+@media (max-width: 420px) {
+  .signup-page {
+    padding: 12px;
+  }
+
+  .signup-page .auth-intro {
+    padding: 23px 20px;
+  }
+
+  .signup-page .auth-brand {
+    margin-bottom: 27px;
+  }
+
+  .signup-page .auth-intro__content {
+    padding: 15px 0 24px;
+  }
+
+  .signup-page .auth-intro__content h1 {
+    font-size: 2rem;
+    letter-spacing: -1px;
+  }
+
+  .signup-page .auth-intro__content > p {
+    font-size: 0.88rem;
+  }
+
+  .signup-page .auth-intro__footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .signup-page .auth-form-area {
+    padding: 30px 20px 24px;
+  }
+
+  .signup-form-card .auth-form-card__heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .signup-form {
+    gap: 17px;
+  }
+
+  .signup-consent {
+    font-size: 0.78rem;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY: REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .signup-page *,
+  .signup-page *::before,
+  .signup-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

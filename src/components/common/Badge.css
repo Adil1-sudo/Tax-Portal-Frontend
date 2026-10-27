@@ -1,0 +1,158 @@
+/* ==============================
+   BADGE BASE
+================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  width: fit-content;
+  max-width: 100%;
+  min-width: 0;
+
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+
+  font-family: var(--font-body);
+  font-weight: var(--font-semibold);
+  line-height: 1.4;
+  vertical-align: middle;
+}
+
+/* ==============================
+   SIZES
+================================ */
+
+.badge--small {
+  padding: 3px 8px;
+  font-size: 11px;
+}
+
+.badge--medium {
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.badge--large {
+  padding: 7px 12px;
+  font-size: 13px;
+}
+
+/* ==============================
+   BADGE TEXT
+================================ */
+
+.badge__text {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.badge__icon {
+  flex-shrink: 0;
+}
+
+/* ==============================
+   SUCCESS
+================================ */
+
+.badge--success {
+  color: #166534;
+  background: #DCFCE7;
+  border-color: #BBF7D0;
+}
+
+/* ==============================
+   WARNING
+================================ */
+
+.badge--warning {
+  color: #92400E;
+  background: #FEF3C7;
+  border-color: #FDE68A;
+}
+
+/* ==============================
+   DANGER
+================================ */
+
+.badge--danger {
+  color: #991B1B;
+  background: #FEE2E2;
+  border-color: #FECACA;
+}
+
+/* ==============================
+   INFORMATION
+================================ */
+
+.badge--info {
+  color: #1E40AF;
+  background: #DBEAFE;
+  border-color: #BFDBFE;
+}
+
+/* ==============================
+   NEUTRAL
+================================ */
+
+.badge--neutral {
+  color: #475569;
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+}
+
+/* ==============================
+   OUTLINE
+================================ */
+
+.badge--outline {
+  color: var(--color-text);
+  background: transparent;
+  border-color: var(--color-border);
+}
+
+/* ==============================
+   OPTIONAL DOT
+================================ */
+
+.badge__dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+
+  background: currentColor;
+  border-radius: 50%;
+}
+
+/* ==============================
+   TABLET AND MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .badge--large {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .badge--small {
+    font-size: 10px;
+  }
+
+  .badge--medium {
+    font-size: 11px;
+  }
+}
+
+/* ==============================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    transition: none;
+  }
+}
